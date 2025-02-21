@@ -89,6 +89,7 @@ function Homepage() {
 
         <div>
             <div>
+                <div className="red-line"></div>
                 <h1 id="recent-boxing-news">Recent Boxing News</h1>
 
                 <div className="posts-container">

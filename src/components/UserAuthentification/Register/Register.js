@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import "./Register.css";
 
 function Register() {
@@ -34,14 +35,47 @@ function Register() {
 
     return (
         <div id="register-container">
+            <h1 className="boxhub-title">🥊 BoxHub</h1>
+            <h2 className="auth-subtitle">Join the Fight Community</h2>
+            
+            <form className="auth-form">
+                <div className="form-group">
+                    <input 
+                        type="text" 
+                        id="username" 
+                        className="auth-input"
+                        value={username} 
+                        placeholder="Choose your username" 
+                        onChange={changeUsername}
+                    />
+                </div>
+                
+                <div className="form-group">
+                    <input 
+                        type="password" 
+                        id="password" 
+                        className="auth-input"
+                        value={password} 
+                        placeholder="Create your password" 
+                        onChange={changePassword}
+                    />
+                </div>
 
-            <h1>Register Page</h1>
-
-            <form>
-                <input type="text" id="username" value={username} placeholder="Username" onChange={changeUsername}></input>
-                <input type="text" id="password" value={password} placeholder="Password" onChange={changePassword}></input>
-                <button id="register-button" onClick={handleButtonClick}>Register</button>
+                <button 
+                    id="register-button" 
+                    className="auth-button"
+                    onClick={handleButtonClick}
+                >
+                    Sign Up & Fight
+                </button>
             </form>
+
+            <div className="auth-footer">
+                <p className="auth-link-text">
+                    Already have an account?{" "}
+                    <Link to="/login" className="auth-link">Login here</Link>
+                </p>
+            </div>
         </div>
     );
 }

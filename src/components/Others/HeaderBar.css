@@ -1,77 +1,108 @@
-#upper-logo-bar {
-    display: flex;
-    position : relative;
-    justify-content: flex-end; /* Aligns items to the right */
-    align-items: center; /* Vertically centers the items */
-    padding: 10px;
-    background-color: #ae3131; /* Optional styling */
-}
-
-#top-left-button {
-    position: fixed;
-    top: 250px;
-    /* Adjust to position it from the top */
-    right: 25px;
-    /* Change 'left' to 'right' to position it from the right */
-    z-index: 1000;
-    /* Ensures the button stays on top of other elements */
-}
-
-#go-to-login-page-button{
-    margin-left: 10px;
-}
-
-#username-text {
-    font-size: 20px !important; /* Change this to the desired size */
-    font-weight: bold; /* Optional: Make it bold */
-    margin-left: 10px; /* Optional: Add some spacing from the plus button */
-}
-
-
-#plus-button {
-    width: 35px;
-    height: 35px;
-    margin-right : 10px;
-    border-radius: 50%;
-    background-color: #000000;
+.header-bar {
+    background-color: #FF1616;
     color: white;
-    font-size: 24px;
-    border: none;
-    cursor: pointer;
+    padding: 1rem 2rem;
+    
+  }
+  
+  .header-bar-content {
     display: flex;
-    justify-content: center;
     align-items: center;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-#plus-button:hover {
-    background-color: #0056b3;
-}
-
-#upper-empty-column {
-    width: 100%;
-    /* Full width */
-    height: 50px;
-    /* Height of the empty column (adjust as needed) */
-    background-color: transparent;
-    /* No background color */
-}
-
-.popup {
-    position: absolute;
-    top: 45px; /* Adjust this value to position the popup below the button */
-    right: 0;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .header-bar-logo .logo-outline {
+    border: 4px solid white;
+    padding: 0.5rem 1rem;
+ 
+  }
+  
+  .header-bar-logo .logo-outline a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .header-bar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+  }
+  
+  .header-bar-nav li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .header-bar-nav li a:hover {
+    color: #e74c3c;
+  }
+  
+  .header-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  #add-post-button {
     background-color: white;
-    border: 1px solid #ccc;
-    padding: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-}
-
-#logout-button {
-    background-color: #ff0000;
+    color: red;
+    border: none;
+    font-weight: 500;
+    padding: 0.45rem 1rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #add-post-button:hover {
+    background-color: #ffada3;
+  }
+  
+  .header-bar-username {
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+  }
+  
+  #user-icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .white-profile-icon {
+    filter: brightness(0) invert(1); 
+    width: 30px;
+    height: 30px;
+  }
+  
+  #logout-button {
+    background-color: #FF1616;
     color: white;
     border: none;
-    padding: 5px 10px;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 1rem;
     cursor: pointer;
-}
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+  }
+  
+  #logout-button:hover {
+    background-color: #c0392b;
+  }

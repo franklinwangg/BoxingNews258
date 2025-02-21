@@ -1,75 +1,67 @@
 import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import personIcon from "./personicon.png";
-import { useNavigate } from "react-router-dom";
 import "./HeaderBar.css";
 
-
-
 const HeaderBar = () => {
+  const { username, setUsername } = useContext(UserContext);
+  const [showPopup, setShowPopup] = useState(false);
+  const navigate = useNavigate();
 
-    const { username, setUsername } = useContext(UserContext); // Access username and setUsername from context
-    const [showLogoutButton, setShowLogoutButton] = useState(false);
+  const togglePopup = () => {
+    setShowPopup(!showPopup);
+  };
 
-    const [showPopup, setShowPopup] = useState(false);
+  const handleUserButtonClick = () => {
+    if (!username) {
+      navigate("/Login");
+    } else {
+      togglePopup();
+    }
+  };
 
-    const togglePopup = () => {
-        setShowPopup(!showPopup); // Toggle the popup visibility
-    };
+  const logOut = () => {
+    setUsername(null);
+    togglePopup();
+  };
 
-    const navigate = useNavigate();
+  const handleAddPostClick = () => {
+    navigate("/createPost");
+  };
 
-    const openLogoutButton = () => {
-        setShowLogoutButton(true);
-    };
-    const handleLPBClick = () => {
-        try {
-            navigate("/Login");
-        } catch (error) {
-            console.error("Error during navigating to CNP page :", error);
-        }
-    };
-
-    const logOut = () => {
-        setUsername(null);
-        togglePopup();
-    };
-
-    const handleCNPPageButtonClick = async () => {
-        try {
-            console.log("tryna naviagte");
-            navigate("/createPost");
-        } catch (error) {
-            console.error("Error during navigating to CNP page :", error);
-        }
-    };
-    
-    return (
-
-        <div>
-            <div>
-                <div id="upper-empty-column"></div>
-                <div id="upper-logo-bar">
-
-                    <button id="plus-button" onClick = {handleCNPPageButtonClick}>+</button>
-
-
-
-                    {username && <div id="username-text">{username}</div>}
-
-                    <button id="go-to-login-page-button" onClick={username == null ? handleLPBClick : togglePopup}>
-                        <img id="person-icon" src={personIcon} alt="User" />
-                    </button>
-
-                    {showPopup && (
-                        <button id="logout-button" onClick={logOut}>Log Out</button>
-                    )}
-
-                </div>
-
-            </div>
+  return (
+    <div className="header-bar">
+      <div className="header-bar-content">
+        <div className="header-bar-logo">
+          <div className="logo-outline">
+            <Link to="/">BOXHUB</Link>
+          </div>
         </div>
-    );
+        <ul className="header-bar-nav">
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/schedules">Schedules</Link></li>
+          <li><Link to="/rankings">Rankings</Link></li>
+          <li><Link to="/scores">Scores</Link></li>
+          <li><Link to="/discussions">Discussions</Link></li>
+        </ul>
+        <div className="header-bar-right">
+          <button id="add-post-button" onClick={handleAddPostClick}>
+            Add Post
+          </button>
+          {username && <div className="header-bar-username">{username}</div>}
+          <button id="user-icon-button" onClick={handleUserButtonClick}>
+            <img id="person-icon" src={personIcon} alt="User" className="white-profile-icon" />
+          </button>
+          {showPopup && (
+            <button id="logout-button" onClick={logOut}>
+              Log Out
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default HeaderBar;

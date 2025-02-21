@@ -92,26 +92,49 @@ function CreatePost() {
 
     return (
         <div className="container">
-            <input
-                id="create-new-post-title-input"
-                placeholder="Title"
-                onChange={changeTitle}
-            ></input>
-            <textarea
-                id="create-new-post-content-input"
-                placeholder="Content"
-                onChange={changecontent}
-                onInput={adjustHeight}
-            ></textarea>
-            <input type="file" id="image-input" accept="image/*" onChange={handleImageChange} required>
+            <h1 className="page-title">Create New Post</h1>
+            <div className="form-group">
+                <input
+                    id="create-new-post-title-input"
+                    className="form-input"
+                    placeholder="Enter post title"
+                    onChange={changeTitle}
+                />
+            </div>
+            
+            <div className="form-group">
+                <textarea
+                    id="create-new-post-content-input"
+                    className="form-input expanding-textarea"
+                    placeholder="Write your post content..."
+                    onChange={changecontent}
+                    onInput={adjustHeight}
+                    rows="3"
+                />
+            </div>
 
-            </input>
+            <div className="form-group">
+                <label className="custom-file-upload">
+                    <input 
+                        type="file" 
+                        id="image-input" 
+                        accept="image/*" 
+                        onChange={handleImageChange} 
+                        required 
+                    />
+                    <span className="upload-label">
+                        {image ? image.name : "Choose an image..."}
+                    </span>
+                    <span className="browse-button">Browse</span>
+                </label>
+            </div>
 
             <button
                 id="create-new-post-submit-button"
+                className="btn-primary"
                 onClick={handleCreatePostButtonClick}
             >
-                Create New Post
+                Publish Post
             </button>
         </div>
     );

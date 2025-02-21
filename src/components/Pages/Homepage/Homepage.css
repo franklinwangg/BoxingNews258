@@ -28,11 +28,19 @@ body {
 }
 
 #recent-boxing-news {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
-    color: #333;
+    color: black;
     margin: 20px;
     text-align: center;
+}
+
+.red-line {
+    width: 75rem; 
+    height: 3px; 
+    background-color: #FF1616; 
+    margin: 2rem auto 2rem; 
+    border-radius: 2px; 
 }
 
 .posts-container {

@@ -52,11 +52,45 @@ function Login() {
 
     return (
         <div id="login-container">
-            <input type="text" id="username" value={enteredUsername} placeholder="Username" onChange={changeEnteredUsername}></input>
-            <input type="text" id="password" value={enteredPassword} placeholder="Password" onChange={changeEnteredPassword}></input>
-            <button id="login-button" onClick={handleButtonClick}>Login</button>
-            <div></div>
-            <Link to="/register">Register here</Link>
+            <h1 className="boxhub-title">🥊 BoxHub</h1>
+            <h2 className="auth-subtitle">Enter the Ring</h2>
+            
+            <div className="form-group">
+                <input 
+                    type="text" 
+                    id="username" 
+                    className="auth-input"
+                    value={enteredUsername} 
+                    placeholder="Username" 
+                    onChange={changeEnteredUsername}
+                />
+            </div>
+            
+            <div className="form-group">
+                <input 
+                    type="password" 
+                    id="password" 
+                    className="auth-input"
+                    value={enteredPassword} 
+                    placeholder="Password" 
+                    onChange={changeEnteredPassword}
+                />
+            </div>
+
+            <button 
+                id="login-button" 
+                className="auth-button"
+                onClick={handleButtonClick}
+            >
+                Enter the Ring
+            </button>
+
+            <div className="auth-footer">
+                <p className="auth-link-text">
+                    Don't have an account?{" "}
+                    <Link to="/register" className="auth-link">Register here</Link>
+                </p>
+            </div>
         </div>
     );
 }
