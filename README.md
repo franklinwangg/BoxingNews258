@@ -12,14 +12,6 @@ Built for speed, scalability, and clean AWS deployment.
 
 ---
 
-## 🚀 Features
-- 📰 Live boxing news aggregation  
-- 💬 Forum for posts and comments  
-- 🖼️ Media uploads to AWS S3  
-- ⚡ Fast, responsive, cloud-hosted UI  
-
----
-
 ## 🧱 Architecture
 React (frontend) → Express API → PostgreSQL → AWS (S3 + CloudFront)
 
